@@ -7,7 +7,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      
+      userInputs:[],
+      watsonInputs:[],
     };
   
     this.bodyStyle = {
@@ -21,64 +22,38 @@ class App extends Component {
 
   onEnterPress(event){
     if(event.keyCode === 13 && event.shiftKey === false){
-      event.preventDefault();
-      document.sendMessage.submit();
+      let message = event.target.value;
+      let timeStamp = new Date();
+      this.handleNewSubmission(message,timeStamp);
+      event.target.value = '';
     }
   }
 
+  handleNewSubmission(message, timeStamp){
+    let inputs = [...this.state.userInputs];
+    inputs.push({
+      message,
+      timeStamp,
+    });
+    this.setState({userInputs: inputs});
+  }
+
   render() {
+    const { userInputs } = this.state;
     return (  
-      <div className="overflow-auto">
-        <table className="table">
+      <div className="overflow-auto table-responsive">
+        <table className="table table-hover">
           <tbody style={this.bodyStyle}>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><WatsonBot /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
-            <tr>
-              <td><User /></td>
-            </tr>
+            {userInputs.map((user,index) =>{
+              return(
+                <tr key={index}>
+                  <User 
+                    message = {user.message}
+                    timeStamp = {user.timeStamp}
+                  />
+                </tr>
+              );
+            })}
           </tbody>
         </table>
         <div>

@@ -3,7 +3,7 @@ class WatsonBot extends Component {
     constructor(props){
         super(props);
         this.state = {
-            message: 'smd',
+            message: 'I\'m sorry to hear that.',
             name: 'Watson Bot',
             timeStamp: new Date(),
         };
@@ -20,11 +20,11 @@ class WatsonBot extends Component {
     render() { 
         const { name, message } = this.state;
         return (
-            <div>
-                {name} {this.formatTime()}
+            <td>
+                <strong>{name}</strong> {this.formatTime()}
                 <br/>
                 {message}
-            </div>
+            </td>
         );
     }
 }
