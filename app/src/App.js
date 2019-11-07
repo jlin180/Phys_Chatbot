@@ -19,6 +19,13 @@ class App extends Component {
 
   }
 
+  onEnterPress(event){
+    if(event.keyCode === 13 && event.shiftKey === false){
+      event.preventDefault();
+      document.sendMessage.submit();
+    }
+  }
+
   render() {
     return (  
       <div className="overflow-auto">
@@ -75,20 +82,16 @@ class App extends Component {
           </tbody>
         </table>
         <div>
-          <form>
-            <div className="row">
-              <div className="col-xs-8">
-                <input 
-                  type="text"
-                  placeholder="send message"
-                />
-              </div>
-              <div className="col-xs-4">
-                <input
-                  type="submit"
-                />
-              </div>
-            </div>
+          <form name="sendMessage" className="form-inline">
+            <textarea
+              id="message"
+              name="message"
+              rows="3"
+              maxLength="400"
+              placeholder="Send message"
+              onKeyDown={e => this.onEnterPress(e)}
+              style={{width:'100vw',}}
+            />
           </form>
         </div>
       </div>
