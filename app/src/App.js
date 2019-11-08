@@ -8,7 +8,6 @@ class App extends Component {
     super(props);
     this.state = {
       userInputs:[],
-      watsonInputs:[],
     };
   
     this.bodyStyle = {
@@ -46,12 +45,20 @@ class App extends Component {
           <tbody style={this.bodyStyle}>
             {userInputs.map((user,index) =>{
               return(
-                <tr key={index}>
-                  <User 
-                    message = {user.message}
-                    timeStamp = {user.timeStamp}
-                  />
+                <React.Fragment>
+                  <tr key={index}>
+                    <User 
+                      message = {user.message}
+                      timeStamp = {user.timeStamp}
+                    />
+                  </tr>
+                  <tr key={-index}>
+                    <WatsonBot
+                      message = {user.message}
+                      timeStamp = {user.timeStamp}
+                    />
                 </tr>
+              </React.Fragment>
               );
             })}
           </tbody>
