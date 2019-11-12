@@ -3,14 +3,12 @@ class WatsonBot extends Component {
     constructor(props){
         super(props);
         this.state = {
-            message: 'smd',
             name: 'Watson Bot',
-            timeStamp: new Date(),
         };
     }
 
     formatTime(){
-        const { timeStamp } = this.state;
+        const { timeStamp } = this.props;
         let hour = timeStamp.getHours()%12===0 ? '12': timeStamp.getHours()%12;
         let minute = timeStamp.getMinutes();
         let period = timeStamp.getHours()/12 >= 1 ? 'PM' : 'AM';
@@ -18,13 +16,14 @@ class WatsonBot extends Component {
     }
 
     render() { 
-        const { name, message } = this.state;
+        const { name } = this.state;
+        const { message } = this.props;
         return (
-            <div>
-                {name} {this.formatTime()}
+            <td>
+                <strong>{name}</strong> {this.formatTime()}
                 <br/>
-                {message}
-            </div>
+                I don't quite understand: {message}
+            </td>
         );
     }
 }
