@@ -30,11 +30,33 @@ class App extends Component {
 
   handleNewSubmission(message, timeStamp){
     let inputs = [...this.state.userInputs];
-    inputs.push({
-      message,
-      timeStamp,
-    });
-    this.setState({userInputs: inputs});
+    // inputs.push({
+    //   message,
+    //   timeStamp,
+    // })
+    fetch('http://127.0.0.1:5000/check', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      "Access-Control-Allow-Origin" : "*", 
+      "Access-Control-Allow-Headers" : "*",
+      "Access-Control-Allow-Credentials" : true 
+    },
+    body: JSON.stringify({
+      'input': message,
+    }),
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      let output = response.message;
+      inputs.push({
+        message,
+        timeStamp,
+        output,
+      });
+      this.setState({userInputs: inputs});
+    })
   }
 
   render() {
@@ -54,7 +76,7 @@ class App extends Component {
                   </tr>
                   <tr key={-index}>
                     <WatsonBot
-                      message = {user.message}
+                      message = {user.output}
                       timeStamp = {user.timeStamp}
                     />
                 </tr>
