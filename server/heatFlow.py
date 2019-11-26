@@ -22,7 +22,7 @@ def calculate(variables):
         res = findHeatCapacity(variables)
     elif variables["heatFlow"] == "":
         res = findHeatFlow(variables)
-    return res
+    return str('%.2E' % Decimal(res))
 
 def findMass(variables):
     if(variables["temp1"] == variables["temp2"] or variables["heatCapacity"] == 0):
