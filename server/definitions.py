@@ -9,3 +9,8 @@ networkStructure = {
     "Diameter" : "the ongest of all shortest paths between pairs of nodes.",
     "Cluster Coefficient" : "Number of connections of my neighbors to each other divided by the total possible numbers of those connections.",
 }
+heatFlow = "Heatflow is a transfer of energy and entropy, usually it is heat from a hot temperature object or fluid being transferred to a low temperature object or fluid"
+heatCapacity = "The amount of heat required to change its temperature"
+elasticCollision = "Elastic collision is when there no loss of kinetic energy in the collision"
+inelasticCollision = "Inelastic collision is when kinetic energy is changed to some other form of energy in the collision"
+
