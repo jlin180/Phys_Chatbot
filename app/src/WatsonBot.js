@@ -22,7 +22,7 @@ class WatsonBot extends Component {
             <td>
                 <strong>{name}</strong> {this.formatTime()}
                 <br/>
-                I don't quite understand: {message}
+                {message}
             </td>
         );
     }

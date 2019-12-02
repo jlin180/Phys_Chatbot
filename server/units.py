@@ -52,6 +52,8 @@ class num(object):
                     break
         if(not used):
             self.flag = True
+        # print(self.coef)
+        # print(multi)
         self.coef = self.coef * multi
         self.sym = unit
         return 1
@@ -78,7 +80,8 @@ def generateObjects(equation):
             # if(i == "*" or i == "/"):
             #     calculateFirst = True
         elif(i[0].isalpha()):
-            symbols.append(i)
+            if(len(i) <= 3 and ("g" in i or "s" in i or "m" in i)):
+                symbols.append(i)
         else:
             coef.append(i)
         
@@ -87,9 +90,9 @@ def generateObjects(equation):
             if(n.flag):
                 return "Unit not found"
             nums.append(n)
+            # print(n.toString())
             # if(calculateFirst):
             #     calculateFirst = False
-
     return calculateEquation(nums, operators)
             
 def calculateEquation(nums, operators):
@@ -149,3 +152,7 @@ def isOperator(equation):
      or equation == "*" or equation == "/"):
         return True
     return False
+
+def get(sentence):
+    return generateObjects(sentence)
+
