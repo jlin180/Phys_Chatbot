@@ -32,11 +32,13 @@ def check():
 def getResponse(sentence):
     topic = topics.getTopic(sentence)
     # Calculate things
-    if("calculate" in sentence or "find" in sentence):
+    if("calculate" in sentence.lower() or "find" in sentence.lower()):
+        print("Calculate")
         # "Circuits", "Heatflow", "Unit changes", "Heat conduction", "Waves"
         return calculateAnswer(topic, sentence)
     # Get definitions
     else:
+        print("Def")
         return getDefinition(topic, sentence)
 
 def calculateAnswer(topic, sentence):
@@ -99,4 +101,4 @@ def getDefinition(topic, sentence):
 
 if __name__ == '__main__':
 #  app.run()
- print(topics.getTopic("qubit entanglement"))
+ print(getResponse("Calculate the current in series if there is 5 V, resistors are 1 ohm, 1 ohm and 1 ohm"))
