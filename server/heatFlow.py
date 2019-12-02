@@ -1,6 +1,5 @@
-
+from decimal import *
 # Change in heat flow = MCaT
-
 
 def fillEq(m, t1, t2, c, q):
     variables = { }
@@ -45,5 +44,3 @@ def findHeatCapacity(variables):
 
 def findHeatFlow(variables):
     return (variables["heatCapacity"] * abs(variables["temp1"]-variables["temp2"]) * variables["mass"])
-
-print(fillEq(1,1,12,"",5))

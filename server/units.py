@@ -149,7 +149,3 @@ def isOperator(equation):
      or equation == "*" or equation == "/"):
         return True
     return False
-
-
-# print(unitConversion(1, "kg"))
-print(generateObjects("5 kg + 29 m + 12kg"))

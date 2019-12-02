@@ -1,5 +1,6 @@
 #  F = G (m1m2)/r^2
 import math
+from decimal import *
 
 def fillEq(f, g, m1, m2, r):
     variables = { }
@@ -49,6 +50,6 @@ def findMissingMass(variables):
     return num/den
 
 def findRad(variables):
-    if(variables[]"force"] == 0):
+    if(variables["force"] == 0):
         return "Error"
-    return math.sqrt(variables["gravity"] * (variables["mass1"] * variables["mass2"] * variables["force"])
+    return math.sqrt(variables["gravity"] * (variables["mass1"] * variables["mass2"] * variables["force"]))

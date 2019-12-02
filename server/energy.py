@@ -1,7 +1,9 @@
+import math
+from decimal import *
 #  E wavelength = hc
 
 c = 299792458
-h = 6.62607004 × Math.pow(10, -34)
+h = 6.62607004 * math.pow(10, -34)
 
 def fillEq(e, w):
     variables = { }

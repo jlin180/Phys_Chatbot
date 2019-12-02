@@ -2,8 +2,7 @@ import decimal
 import math
 
 # V = IR
-seriesDef = "A circuit where the current follows one paths"
-parallelDef = "A circuit where current diverges into multiple paths"
+
 
 def seriesCurrent(resistors, voltage):
     s = seriesResistance(resistors)
@@ -34,6 +33,3 @@ def parallelResistance(resistors):
         d+=1
         count+=1
     return s,count
-
-print("Hello World")
-print(seriesCurrent([30,30,30], 90))
