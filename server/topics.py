@@ -5,16 +5,39 @@
 # Unit changes
 # Heat conduction
 
-topics = {"Circuits":["circuit","parallel","series","ohms","resistor","voltmeter","voltage","current","ammeter","amperes"], 
-                "Heatflow":["Heatflow","temperature","heat","heat capacity"],
-                "Unit changes":["convert units","units", "SI"],
-                "Heat conduction":["heat conduction","thermodynamics law","heat convention"],
-                "Waves":["waves","speed of light","frequency","period","wavelength","amplitude","wave properties","constructive interference","destructive interference","transverse wave","longitudinal wave", "polarization","diffraction","reflection","refraction"],
-                "Collisions":["elastic collision","inelastic collision"],
-                "Networks":["networks", "networks structure", "connections", "Erdos number", "nodes"],
-                "Fractal" : ["fractals", "fractal properties", "fractal dimension"],
-                "Chaos" : ["Sensitivity to Initial Condition", "Phase Space", "Invariants" ,"Strange Attractors"],
-                "Electricity and Magnetism" : ["Gauss law for electric field", "Guass law for magnetic field", "Ampere's Law", "Faraday's Law"],
-                "Quantum Mechanics" : ["Qubit","Heisenberg Uncertainty Principle","Copenhagen Interpretation","Entanglement"], 
-                "Cryptography" : ["encryption","decryption","cryptanalysis","Private Key", "Public Key"]
-                }
+topics = ["Circuits", "Heatflow", "Unit changes", "Heat conduction", "Waves", "Collisions",
+    "Networks", "Fractal", "Chaos", "Electricity and Magnetism", "Quantum Mechanics", "Cryptography"]
+
+keyWords = [["circuit","parallel","series","ohms","resistor","voltmeter","voltage","current","ammeter","amperes", "resistance", "amps", "volts"],
+    ["Heatflow","temperature","heat","heat capacity"], 
+    ["convert units","units", "SI", "unit", "conversion"],
+    ["heat conduction","thermodynamics law","heat convention"],
+    ["waves","speed of light","frequency","period","wavelength","amplitude","wave properties","constructive interference","destructive interference","transverse wave","longitudinal wave", "polarization","diffraction","reflection","refraction"],
+    ["elastic collision","inelastic collision"],
+    ["networks", "networks structure", "connections", "erdos number", "nodes"],
+    ["fractals", "fractal properties", "fractal dimension"],
+    ["sensitivity to initial condition", "phase space", "invariants" ,"strange attractors"],
+    ["gauss law for electric field", "guass law for magnetic field", "ampere's law", "faraday's law"],
+    ["qubit","heisenberg uncertainty principle","copenhagen interpretation","entanglement"], 
+    ["encryption","decryption","cryptanalysis","private key", "public key"]
+]
+
+
+def getTopic(sentence):
+    global topics
+    global keyWords
+    result = 0
+    maxCount = 0
+    index = 0
+    for words in keyWords:
+        temp = 0
+        for word in sentence.split():
+            if(word.lower() in words):
+                temp += 1
+        if(temp > maxCount):
+            result = index
+            maxCount = temp
+        index += 1
+    return topics[result]
+
+print(getTopic("qubit entanglement"))

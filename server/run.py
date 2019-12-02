@@ -1,6 +1,17 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
+# Imports
+from circuits import *
+from definitions import *
+from energy import *
+from gravity import *
+from heatFlow import *
+from topics import *
+from units import *
+from vfl import *
+
+
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
@@ -17,6 +28,9 @@ def check():
     return jsonify(
         message="Output"
     )
+
+
+# if sentence contains calculate, go calculate, else get def
 
 if __name__ == '__main__':
  app.run()
