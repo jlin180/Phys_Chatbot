@@ -24,13 +24,16 @@ def check():
     # res = "check success " + request.data
     data = request.get_json()
     # print(data['input'])
-    message = getResponse(data['input'])
+    res = getResponse(data['input'])
+    print(res)
     return jsonify(
-        message="Output"
+        message=res
     )
 
 def getResponse(sentence):
     topic = topics.getTopic(sentence)
+    if(topic == "Error"):
+        return "Sorry, I am unable to comprehend or I haven't learned yet, please rephrase."
     # Calculate things
     if("calculate" in sentence.lower() or "find" in sentence.lower()):
         print("Calculate")
@@ -97,8 +100,6 @@ def getDefinition(topic, sentence):
         ans += definitions.gravity                       
     return ans
 
-# if sentence contains calculate, go calculate, else get def
-
 if __name__ == '__main__':
 #  app.run()
- print(getResponse("Calculate the current in series if there is 5 V, resistors are 1 ohm, 1 ohm and 1 ohm"))
+ print(getResponse("calculate units for 20g to 10 kg"))

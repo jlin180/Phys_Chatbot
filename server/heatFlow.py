@@ -8,6 +8,7 @@ def fillEq(m, t1, t2, c, q):
     variables["temp2"] = t2
     variables["heatCapacity"] = c
     variables["heatFlow"] = q
+    print(variables)
     return calculate(variables)
 
 def calculate(variables):
@@ -21,6 +22,10 @@ def calculate(variables):
         res = findHeatCapacity(variables)
     elif variables["heatFlow"] == "":
         res = findHeatFlow(variables)
+    else:
+        return "Insufficient variables for calculation"
+    if(res == "Cannot divide by 0"):
+        return res
     return str('%.2E' % Decimal(res))
 
 def findMass(variables):
@@ -44,3 +49,33 @@ def findHeatCapacity(variables):
 
 def findHeatFlow(variables):
     return (variables["heatCapacity"] * abs(variables["temp1"]-variables["temp2"]) * variables["mass"])
+
+def get(sentence):
+    m = ""
+    t1 = ""
+    t2 = ""
+    c = ""
+    q = ""
+    last = 0
+    # words = sentence.split()
+    # for i in range(len(words)):
+    #     if("mass" in words[i] or "weight" in words[i]):
+    #         while not(words[i].isnumeric()):
+    #             i+=1
+    #         m = words[i]
+    #     if()
+    for word in sentence.split():
+        if(word.isnumeric()):
+            last = int (word)
+        elif("kg" in word):
+            m = last
+        elif("K" in word and "J/K" not in word):
+            if(t1 == ""):
+                t1 = last
+            else:
+                t2 = last
+        elif("J/K" in word):
+            c = last
+        elif("J" in word and "J/K" not in word):
+            q = last
+    return fillEq(m, t1, t2, c, q)

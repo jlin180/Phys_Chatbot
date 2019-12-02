@@ -81,11 +81,13 @@ amperes = "unit of measure of the rate of electron flow or current in an electri
 seriesCircuit = "a closed circuit in which the current follows one path"
 parallelCircuit = "a closed circuit in which the current divides into two or more paths before recombining to complete the circuit. "
 # Quantum Mech
-Entanglement = "Things can be connected in such a deep way, that THIS and THAT are really only ONE thing!"
-UncertaintyPrinciple =  "The position and the velocity of an object cannot both be measured exactly, at the same time, even in theory"
-CopenhagenInterpretation = "Physical systems generally do not have definite properties prior to being measured, and quantum mechanics can only predict the probability distribution of a given measurement's possible results. "
-Qubit = "A quantum bit"
+quantumMechanics = ""
+entanglement = "Things can be connected in such a deep way, that THIS and THAT are really only ONE thing!"
+uncertaintyPrinciple =  "The position and the velocity of an object cannot both be measured exactly, at the same time, even in theory"
+copenhagenInterpretation = "Physical systems generally do not have definite properties prior to being measured, and quantum mechanics can only predict the probability distribution of a given measurement's possible results. "
+qubit = "A quantum bit"
 # Cryptography
+cryptogphy = ""
 encryption = "The method by which information is converted into secret code that hides the information's true meaning"
 decryption = "The process of taking encoded or encrypted text or other data and converting it back into text that you or the computer can read and understand"
 cryptanalysis = "The decryption and analysis of codes, ciphers or encrypted text. Uses mathematical formulas to search for algorithm vulnerabilities and break into cryptography or information security systems. "

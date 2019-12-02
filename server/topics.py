@@ -13,13 +13,13 @@ keyWords = [["circuit","parallel","series","ohms","resistor","voltmeter","voltag
     ["convert units","units", "SI", "unit", "conversion"],
     ["heat conduction","thermodynamics law","heat convention"],
     ["waves","speed of light","frequency","period","wavelength","amplitude","wave properties","constructive interference","destructive interference","transverse wave","longitudinal wave", "polarization","diffraction","reflection","refraction"],
-    ["elastic collision","inelastic collision"],
+    ["collision", "elastic","inelastic", "crashes", "collide"],
     ["networks", "networks structure", "connections", "erdos number", "nodes"],
     ["fractals", "fractal properties", "fractal dimension"],
-    ["sensitivity to initial condition", "phase space", "invariants" ,"strange attractors"],
+    ["chaos", "sensitivity to initial condition", "phase space", "invariants" ,"strange attractors"],
     ["gauss law for electric field", "guass law for magnetic field", "ampere's law", "faraday's law"],
-    ["qubit","heisenberg uncertainty principle","copenhagen interpretation","entanglement"], 
-    ["encryption","decryption","cryptanalysis","private key", "public key"],
+    ["quantum", "qubit","heisenberg uncertainty principle","copenhagen interpretation","entanglement"], 
+    ["cryptography" ,"encryption","decryption","cryptanalysis","private key", "public key"],
     ["gravity", "force", "radius", "gravitational"]
 ]
 
@@ -39,4 +39,6 @@ def getTopic(sentence):
             result = index
             maxCount = temp
         index += 1
+    if(maxCount == 0):
+        return "Error"
     return topics[result]

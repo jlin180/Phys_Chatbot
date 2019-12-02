@@ -28,7 +28,7 @@ def parallelResistance(resistors):
     for  i in resistors:
         s += 1/i
     # Convert back to 1/x
-    d = decimal.Decimal(s)
+    d = Decimal(s)
     d = d.as_tuple().exponent
     count = 0
     while( d < 0 and count < 5):
