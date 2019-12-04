@@ -101,5 +101,5 @@ def getDefinition(topic, sentence):
     return ans
 
 if __name__ == '__main__':
-#  app.run()
- print(getResponse("calculate units for 20g to 10 kg"))
+ app.run()
+#  print(getResponse("calculate units for 20g to 10 kg"))
