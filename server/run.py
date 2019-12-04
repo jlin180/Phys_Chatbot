@@ -64,8 +64,10 @@ def getDefinition(topic, sentence):
     if(topic == "Circuits"):
         if("series" in sentence):
             ans += definitions.seriesCircuit
-        if("parallel" in sentence): 
+        elif("parallel" in sentence): 
             ans += definitions.parallelCircuit
+        else:
+            ans += definitions.circuit
     elif(topic == "Heatflow"):
         ans += definitions.heatFlow
     elif(topic == "Unit changes"):    
@@ -101,5 +103,5 @@ def getDefinition(topic, sentence):
     return ans
 
 if __name__ == '__main__':
-#  app.run()
- print(getResponse("calculate units for 20g to 10 kg"))
+ app.run()
+#  print(getResponse("calculate units for 20g to 10 kg"))

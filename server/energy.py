@@ -26,9 +26,23 @@ def findWavelength(variables):
     if(variables["energy"] == 0):
         return "Error"
     return (h*c)/variables["energy"]
+
 def findEnergy(variables):
     global c
     global h
     if(variables["wavelength"] == 0):
         return "Error"
     return (h*c)/variables["wavelength"]
+
+def get(sentence):
+    w = ""
+    e= ""
+    last = 0
+    for word in sentence.split():
+        if(word.isnumeric()):
+            last = int (word)
+        elif("J" == word):
+            e = last
+        elif("m" == word ):
+            w = last
+    return fillEq(e,w)

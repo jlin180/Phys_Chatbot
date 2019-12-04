@@ -5,7 +5,7 @@ from decimal import *
 def fillEq(f, g, m1, m2, r):
     variables = { }
     variables["force"] = f
-    variables["gravity"] = g
+    variables["gravity"] = 6.67 * math.pow(10,-11)
     variables["mass1"] = m1
     variables["mass2"] = m2
     variables["rad"] = r
@@ -53,3 +53,24 @@ def findRad(variables):
     if(variables["force"] == 0):
         return "Error"
     return math.sqrt(variables["gravity"] * (variables["mass1"] * variables["mass2"] * variables["force"]))
+
+def get(sentence):
+    f = ""
+    g = ""
+    m1 = ""
+    m2 = ""
+    r = ""
+    last = 0
+    for word in sentence.split():
+        if(word.isnumeric()):
+            last = int (word)
+        elif("m" == word):
+            r = last
+        elif("kg" == word ):
+            if(m1 == ""):
+                m1 = last
+            else:
+                m2 = last
+        elif("N" == word):
+            f = last
+    return fillEq(f,g,m1,m2,r)

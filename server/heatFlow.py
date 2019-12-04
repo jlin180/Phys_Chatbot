@@ -57,13 +57,6 @@ def get(sentence):
     c = ""
     q = ""
     last = 0
-    # words = sentence.split()
-    # for i in range(len(words)):
-    #     if("mass" in words[i] or "weight" in words[i]):
-    #         while not(words[i].isnumeric()):
-    #             i+=1
-    #         m = words[i]
-    #     if()
     for word in sentence.split():
         if(word.isnumeric()):
             last = int (word)

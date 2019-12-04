@@ -28,3 +28,16 @@ def findFreq(variables):
     if(variables["wavelength"] == 0):
         return "Error"
     return c/variables["wavelength"]
+
+def get(sentence):
+    w = ""
+    f= ""
+    last = 0
+    for word in sentence.split():
+        if(word.isnumeric()):
+            last = int (word)
+        elif("Hz" == word):
+            f = last
+        elif("m" == word ):
+            w = last
+    return fillEq(w,f)
