@@ -67,7 +67,6 @@ def generateObjects(equation):
     symbols = []
     operators = []
     nums = []
-    calculateFirst = False
     items = equation.split()
     for i in items:
         if(bool(re.match('^(?=.*[0-9])(?=.*[a-zA-Z]$)', i))):
@@ -77,8 +76,6 @@ def generateObjects(equation):
             nums.append(n)
         elif(isOperator(i)):
             operators.append(i)
-            # if(i == "*" or i == "/"):
-            #     calculateFirst = True
         elif(i[0].isalpha()):
             if(len(i) <= 3 and ("g" in i or "s" in i or "m" in i)):
                 symbols.append(i)
@@ -90,9 +87,6 @@ def generateObjects(equation):
             if(n.flag):
                 return "Unit not found"
             nums.append(n)
-            # print(n.toString())
-            # if(calculateFirst):
-            #     calculateFirst = False
     return calculateEquation(nums, operators)
             
 def calculateEquation(nums, operators):

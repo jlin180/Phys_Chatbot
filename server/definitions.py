@@ -20,16 +20,16 @@ ThermodynamicsLaws = {
     "Second Law" : "Heat energy cannot be transferred from a body at a lower temperature to a body at a higher temperature without the addition of energy. ",
     "Third Law" :"The entropy of a pure crystal at absolute zero is zero. "
 }
-heatConduction = "the flow of internal energy from a region of higher temperature to one of lower temperature by the interaction of the adjacent particles (atoms, molecules, ions, electrons, etc. ) in the intervening space. "
-heat = "a form of energy that can be transferred from one object to another or even created at the expense of the loss of other forms of energy. "
-temperature = "a measure of the average kinetic energy of the particles in a system"
+heatConduction = "The flow of internal energy from a region of higher temperature to one of lower temperature by the interaction of the adjacent particles (atoms, molecules, ions, electrons, etc. ) in the intervening space. "
+heat = "A form of energy that can be transferred from one object to another or even created at the expense of the loss of other forms of energy. "
+temperature = "A measure of the average kinetic energy of the particles in a system"
 # Fractal
 fractals = "A never ending pattern.  Infinitely complex patterns that are self-similar across different scales.  They are created by repeating a simple process over and over in an ongoing feedback loop. "
 fractalProperties = {
-    "Self-Similarity" : "The little pieces are EXACT smaller copies of the larger pieces. ",
-    "Statistical Self-Similarity" : "Statistics of the little pieces are the same as the statistics of the bigger pieces. ",
-    "Scaling" : "The values measured depend on the resolution used to make the measurement. ",
-    "Statistics" : "The average size depends on the resolution used to make the measurement. "
+    "Self-Similarity" : "the little pieces are EXACT smaller copies of the larger pieces. ",
+    "Statistical Self-Similarity" : "statistics of the little pieces are the same as the statistics of the bigger pieces. ",
+    "Scaling" : "the values measured depend on the resolution used to make the measurement. ",
+    "Statistics" : "the average size depends on the resolution used to make the measurement. "
 }
 fractalDimensions = "A quantitative measure of self-similarity and scaling"
 # Collision
@@ -70,24 +70,24 @@ electricMagnetism = {
     "Ampere's Law" : "Electric currents and changes in electric fields are portional to the magnetic fields circulating about the areas where they accumulate. "
 }
 # Circuits
-current = "flow of electrical charge carriers, usually electrons or electron-deficient atoms"
-circuit = "a closed loop that electrons can travel in"
-resistor = "a passive two-terminal electrical component that implements electrical resistance as a circuit element. "
-ohms = "a resistance between two points of a conductor"
-voltage = "electric potential energy per unit charge, measured in joules per coulomb ( also known as volts). It is often referred to as electric potential"
-ammeter = "a measuring device used to measure the electric current in a circuit. "
-voltmeter ="an instrument used for measuring the potential difference, or voltage, between two points in an electrical or electronic circuit. "
-amperes = "unit of measure of the rate of electron flow or current in an electrical conductor. "
-seriesCircuit = "a closed circuit in which the current follows one path"
-parallelCircuit = "a closed circuit in which the current divides into two or more paths before recombining to complete the circuit. "
+current = "Flow of electrical charge carriers, usually electrons or electron-deficient atoms"
+circuit = "A closed loop that electrons can travel in"
+resistor = "A passive two-terminal electrical component that implements electrical resistance as a circuit element. "
+ohms = "A resistance between two points of a conductor"
+voltage = "Electric potential energy per unit charge, measured in joules per coulomb ( also known as volts). It is often referred to as electric potential"
+ammeter = "A measuring device used to measure the electric current in a circuit. "
+voltmeter ="An instrument used for measuring the potential difference, or voltage, between two points in an electrical or electronic circuit. "
+amperes = "Unit of measure of the rate of electron flow or current in an electrical conductor. "
+seriesCircuit = "Series circuit is closed circuit in which the current follows one path. "
+parallelCircuit = "Parallel circuit is closed circuit in which the current divides into two or more paths before recombining to complete the circuit. "
 # Quantum Mech
 quantumMechanics = ""
-entanglement = "Things can be connected in such a deep way, that THIS and THAT are really only ONE thing!"
-uncertaintyPrinciple =  "The position and the velocity of an object cannot both be measured exactly, at the same time, even in theory"
+entanglement = "Entanglement is the idea that things can be connected in such a deep way, that THIS and THAT are really only ONE thing! "
+uncertaintyPrinciple =  "The uncertainty principle is when the position and the velocity of an object cannot both be measured exactly, at the same time, even in theory. "
 copenhagenInterpretation = "Physical systems generally do not have definite properties prior to being measured, and quantum mechanics can only predict the probability distribution of a given measurement's possible results. "
 qubit = "A quantum bit"
 # Cryptography
-cryptogphy = ""
+cryptography = "Cryptography is the practice and study of techniques for secure communication in the presence of third parties called adversaries."
 encryption = "The method by which information is converted into secret code that hides the information's true meaning"
 decryption = "The process of taking encoded or encrypted text or other data and converting it back into text that you or the computer can read and understand"
 cryptanalysis = "The decryption and analysis of codes, ciphers or encrypted text. Uses mathematical formulas to search for algorithm vulnerabilities and break into cryptography or information security systems. "

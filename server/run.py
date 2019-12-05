@@ -11,19 +11,13 @@ import topics
 import units
 import vfl
 
-
+startup = False
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-@app.route('/')
-def hello_world():
- return 'Hello to the World of Flask!'
-
 @app.route('/check', methods=['POST'])
 def check():
-    # res = "check success " + request.data
     data = request.get_json()
-    # print(data['input'])
     res = getResponse(data['input'])
     print(res)
     return jsonify(
@@ -31,17 +25,19 @@ def check():
     )
 
 def getResponse(sentence):
+    global startup
+    print(startup)
+    if (startup == False):
+        startup = True
+        return SayHello()
     topic = topics.getTopic(sentence)
     if(topic == "Error"):
         return "Sorry, I am unable to comprehend or I haven't learned yet, please rephrase."
     # Calculate things
     if("calculate" in sentence.lower() or "find" in sentence.lower()):
-        print("Calculate")
-        # "Circuits", "Heatflow", "Unit changes", "Heat conduction", "Waves"
         return calculateAnswer(topic, sentence)
     # Get definitions
     else:
-        print("Def")
         return getDefinition(topic, sentence)
 
 def calculateAnswer(topic, sentence):
@@ -64,12 +60,21 @@ def getDefinition(topic, sentence):
     if(topic == "Circuits"):
         if("series" in sentence):
             ans += definitions.seriesCircuit
-        elif("parallel" in sentence): 
+        if("parallel" in sentence): 
             ans += definitions.parallelCircuit
         else:
             ans += definitions.circuit
     elif(topic == "Heatflow"):
-        ans += definitions.heatFlow
+        if("flow" in sentence):
+            ans += definitions.heatFlow
+        if("capacity" in sentence):
+            ans += definitions.heatCapacity
+        if("conduction" in sentence):
+            ans += definitions.heatConduction
+        if("convention" in sentence):
+            ans += definitions.heatConvention
+        if("temperature" in sentence):
+            ans += definitions.temperature
     elif(topic == "Unit changes"):    
         ans += definitions.SI
     elif(topic == "Heat conduction"):    
@@ -90,18 +95,47 @@ def getDefinition(topic, sentence):
             ans += definitions.connections
     elif(topic == "Fractal"):    
         ans += definitions.fractals
+        if("properties" in sentence):
+            ans += "Properties that it contains are: \n"
+            for prop in definitions.fractalProperties:
+                ans += prop + " is " + definitions.fractalProperties[prop]
     elif(topic == "Chaos"):    
-        ans += ""
+        ans += "Chaos contains the following properties: \n"
+        for prop in definitions.Chaos:
+            ans += prop + " is " + definitions.Chaos[prop]
     elif(topic == "Electricity and Magnetism"):
-        ans += ""
+        ans += "Electricity and magnetism contains the following properties: \n"
+        for prop in definitions.electricMagnetism:
+            ans += prop + " is " + definitions.electricMagnetism[prop]
     elif(topic == "Quantum Mechanics"):
         ans += ""
+        if("entanglement" in sentence):
+            ans += definitions.entanglement
+        if("uncertainty" in sentence):
+            ans += definitions.uncertaintyPrinciple
+        if("copenhagen" in sentence):
+            ans += definitions.copenhagenInterpretation
+        if("qubit" in sentence):
+            ans += definitions.qubit
     elif(topic == "Cryptography"):    
-        ans += ""            
+        if("encryption" in sentence):
+            ans += definitions.encryption
+        if("decryption" in sentence):
+            ans += definitions.decryption
+        if("cryptanalysis" in sentence):
+            ans += definitions.cryptanalysis
+        if("private" in sentence):
+            ans += definitions.privateKey
+        if("public" in sentence):
+            ans += definitions.publicKey  
+        else:
+            ans += definitions.cryptography          
     elif(topic == "Gravity"):    
         ans += definitions.gravity                       
     return ans
 
+def SayHello():
+    return "Hello, I am a basic bot that can give definitions and minor calculations. I will try my best to help!!!"
+
 if __name__ == '__main__':
  app.run()
-#  print(getResponse("calculate units for 20g to 10 kg"))

@@ -1,10 +1,5 @@
 # Contains all the topis necessary
 
-# Circuits
-# Heatflow
-# Unit changes
-# Heat conduction
-
 topics = ["Circuits", "Heatflow", "Unit changes", "Heat conduction", "Waves", "Collisions",
     "Networks", "Fractal", "Chaos", "Electricity and Magnetism", "Quantum Mechanics", "Cryptography", "Gravity"]
 

@@ -60,13 +60,17 @@ def get(sentence):
     for word in sentence.split():
         if(word.isnumeric()):
             last = int (word)
+            print(last)
         elif("kg" in word):
             m = last
-        elif("K" in word and "J/K" not in word):
+        elif("K" == word):
+            print("K")
             if(t1 == ""):
                 t1 = last
-            else:
+                print(t1)
+            elif (t2 == ""):
                 t2 = last
+                print(t2)
         elif("J/K" in word):
             c = last
         elif("J" in word and "J/K" not in word):

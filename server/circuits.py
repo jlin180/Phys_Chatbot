@@ -42,16 +42,22 @@ def get(sentence):
     last = 0
     voltage = -1
     for word in sentence.split():
+
         if(word.isnumeric()):
             last = int (word)
+            # print(word)
             if not(voltage == -1):
                 resistors.append(int (word))
         if("voltage" in word or "volts" in word or "V" in word):
             voltage = last
+            print(voltage)
     if("series" in sentence):
+        print(resistors)
+        print(seriesCurrent(resistors, voltage))
         return "The current is "+ str('%.2E' % Decimal(seriesCurrent(resistors, voltage))) + "A"
     elif("parallel" in sentence):
         return "The current is "+ str('%.2E' % Decimal(parallelCurrent(resistors, voltage))) + "A"
     return "I didn't understand the question. Please list the voltages and each of the resistors"
         
         
+get("For the series circuit, calculate current when it is 30 volts, the resistors are in ohms of 10 ohma, 10 ohms, 10 ohsm")
